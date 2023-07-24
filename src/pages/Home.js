@@ -137,7 +137,7 @@ function Home() {
               <div
                 className='flex justify-between pb-5'
                 onChange={(e) => {
-                  formData.gender = e.target.value;
+                  formData.gender = e.target.value.toUpperCase();
                 }}
               >
                 <label for='gender'>gender:-</label>
