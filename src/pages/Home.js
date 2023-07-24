@@ -5,23 +5,23 @@ import Compressor from "compressorjs";
 
 function Home() {
   const [formData, setFormData] = useState({
-    FullName: "",
-    FatherName: "",
-    MotherName: "",
-    Address: "",
-    Email: "",
-    MobileNumber: "",
-    DOB: "",
-    Category: "",
-    Gender: "",
-    Class: "",
-    Image: "",
+    fullName: "",
+    fatherName: "",
+    motherName: "",
+    address: "",
+    email: "",
+    mobileNumber: "",
+    dob: "",
+    category: "",
+    gender: "",
+    class: "",
+    // Image: "",
   });
   const inputRef = useRef(null);
   const handelSubmit = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:5000/registerStudent", formData)
+      .post("http://localhost:5000/student/register", formData)
       .then(function (response) {
         console.log(response.data);
       })
@@ -47,7 +47,10 @@ function Home() {
         Student Registration
       </div>
       <div className='flex justify-center'>
-        <div className=' sm:flex sm:justify-between inline-block justify-center shadow-indigo-500/40 rounded-sm'>
+        <div
+          className=' sm:flex sm:justify-between inline-block justify-center 
+         rounded-sm'
+        >
           {/* ******************** Input forms *********************** */}
           <div className='p-5 shadow-lg font-medium'>
             <form action=''>
@@ -55,7 +58,7 @@ function Home() {
                 <label htmlFor='Enter your name'>Full Name :-</label>
                 <input
                   onChange={(e) => {
-                    formData.FullName = e.target.value;
+                    formData.fullName = e.target.value;
                   }}
                   type='text'
                   className='bg-gray-100 border-2 rounded-md outline-none focus:border-blue-500 focus:p-0.5 transition-all duration-[0.3s] ease-in-out'
@@ -65,7 +68,7 @@ function Home() {
                 <label htmlFor='Father Name'>Father Name :-</label>
                 <input
                   onChange={(e) => {
-                    formData.FatherName = e.target.value;
+                    formData.fatherName = e.target.value;
                   }}
                   type='text'
                   className='bg-gray-100 border-2 rounded-md outline-none focus:border-blue-500 focus:p-0.5 transition-all duration-[0.3s] ease-in-out'
@@ -75,7 +78,7 @@ function Home() {
                 <label htmlFor='Mother Name'>Mother Name :-</label>
                 <input
                   onChange={(e) => {
-                    formData.MotherName = e.target.value;
+                    formData.motherName = e.target.value;
                   }}
                   type='text'
                   className='bg-gray-100 border-2 rounded-md outline-none focus:border-blue-500 focus:p-0.5 transition-all duration-[0.3s] ease-in-out'
@@ -85,7 +88,7 @@ function Home() {
                 <label htmlFor='Address'>Address :-</label>
                 <textarea
                   onChange={(e) => {
-                    formData.Address = e.target.value;
+                    formData.address = e.target.value;
                   }}
                   type='text'
                   className='bg-gray-100 border-2 rounded-md outline-none focus:border-blue-500 focus:p-0.5 transition-all duration-[0.3s] ease-in-out'
@@ -95,7 +98,7 @@ function Home() {
                 <label htmlFor='Email'>Email :-</label>
                 <input
                   onChange={(e) => {
-                    formData.Email = e.target.value;
+                    formData.email = e.target.value;
                   }}
                   type='email'
                   className='bg-gray-100 border-2 rounded-md outline-none focus:border-blue-500 focus:p-0.5 transition-all duration-[0.3s] ease-in-out'
@@ -105,7 +108,7 @@ function Home() {
                 <label htmlFor='Mobile'>Mobile :-</label>
                 <input
                   onChange={(e) => {
-                    formData.MobileNumber = e.target.value;
+                    formData.mobileNumber = e.target.value;
                   }}
                   type='text'
                   className='bg-gray-100 border-2 rounded-md outline-none focus:border-blue-500 focus:p-0.5 transition-all duration-[0.3s] ease-in-out'
@@ -115,7 +118,7 @@ function Home() {
                 <label htmlFor='DOB'>DOB :-</label>
                 <input
                   onChange={(e) => {
-                    formData.DOB = e.target.value;
+                    formData.dob = e.target.value;
                   }}
                   type='date'
                   className='bg-gray-100 border-2 rounded-md outline-none focus:border-blue-500 focus:p-0.5 transition-all duration-[0.3s] ease-in-out'
@@ -125,16 +128,16 @@ function Home() {
                 <label htmlFor='Category'>Category :-</label>
                 <input
                   onChange={(e) => {
-                    formData.Category = e.target.value;
+                    formData.category = e.target.value;
                   }}
                   type='text'
-                  className='bg-gray-100 border-2 rounded-md outline-none focus:border-blue-500 focus:p-0.5 transition-all duration-[0.3s] ease-in-out'
+                  className='bg-gray-100 border-2 rounded-md outline-none focus:border-blue-500 uppercase focus:p-0.5 transition-all duration-[0.3s] ease-in-out'
                 />
               </div>
               <div
                 className='flex justify-between pb-5'
                 onChange={(e) => {
-                  formData.Gender = e.target.value;
+                  formData.gender = e.target.value;
                 }}
               >
                 <label for='gender'>gender:-</label>
@@ -149,7 +152,7 @@ function Home() {
                 <label htmlFor='Class'>Class :-</label>
                 <input
                   onChange={(e) => {
-                    formData.Class = e.target.value;
+                    formData.class = e.target.value;
                   }}
                   type='text'
                   className='bg-gray-100 border-2 rounded-md outline-none focus:border-blue-500 focus:p-0.5 transition-all duration-[0.3s] ease-in-out'
