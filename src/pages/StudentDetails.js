@@ -22,23 +22,49 @@ function StudentDetails() {
 
   return (
     <div className='flex justify-center'>
-      <div>
-        <img
-          className='rounded-full w-32 h-32 sm:w-40 sm:h-40 object-fill'
-          src={`http://localhost:5000/${data.image}`}
-          alt='Image'
-        />
-        <ul>
-          <li>{data.fullName}</li>
-          <li>{data.fatherName}</li>
-          <li>{data.motherName}</li>
-          <li>{data.address}</li>
-          <li>{data.email}</li>
-          <li>{data.mobileNumber}</li>
-          <li>{data.dob}</li>
-          <li>{data.category}</li>
-          <li>{data.gender}</li>
-          <li>{data.studentClass}</li>
+      <div className='border-2 p-10 shadow-lg shadow-blue-600'>
+        <div className='flex justify-center pb-3'>
+          <img
+            className='rounded-md w-32 h-32 sm:w-40 sm:h-40 object-fill'
+            src={`http://localhost:5000/${data.image}`}
+            alt='Image'
+          />
+        </div>
+        <ul className='text-center font-bold'>
+          <li>
+            Student Name -: <span className='font-normal'>{data.fullName}</span>
+          </li>
+          <li>
+            Father Name -:{" "}
+            <span className='font-normal'>{data.fatherName}</span>
+          </li>
+          <li>
+            Mother Name -:{" "}
+            <span className='font-normal'>{data.motherName}</span>
+          </li>
+          <li>
+            Address -: <span className='font-normal'>{data.address}</span>
+          </li>
+          <li>
+            Date -: <span className='font-normal'>{data.email}</span>
+          </li>
+          <li>
+            Mobile number -:{" "}
+            <span className='font-normal'>{data.mobileNumber}</span>
+          </li>
+          <li>
+            Dob -: <span className='font-normal'>{data.dob}</span>
+          </li>
+          <li>
+            Date -: <span className='font-normal'>{data.category}</span>
+          </li>
+          <li>
+            Gender -: <span className='font-normal'>{data.gender}</span>
+          </li>
+          <li>
+            Class Name -:{" "}
+            <span className='font-normal'>{data.studentClass}</span>
+          </li>
         </ul>
       </div>
     </div>
