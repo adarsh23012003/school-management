@@ -14,14 +14,26 @@ function Home() {
     dob: "",
     category: "",
     gender: "",
-    class: "",
-    // Image: "",
+    studentClass: "",
+    image: "",
   });
   const inputRef = useRef(null);
   const handelSubmit = (e) => {
+    const convertFormData = new FormData();
+    convertFormData.append("fullName", formData.fullName);
+    convertFormData.append("fatherName", formData.fatherName);
+    convertFormData.append("motherName", formData.motherName);
+    convertFormData.append("address", formData.address);
+    convertFormData.append("email", formData.email);
+    convertFormData.append("mobileNumber", formData.mobileNumber);
+    convertFormData.append("dob", formData.dob);
+    convertFormData.append("category", formData.category);
+    convertFormData.append("gender", formData.gender);
+    convertFormData.append("studentClass", formData.studentClass);
+    convertFormData.append("image", formData.image);
     e.preventDefault();
     axios
-      .post("http://localhost:5000/student/register", formData)
+      .post("http://localhost:5000/student/register", convertFormData)
       .then(function (response) {
         console.log(response.data);
       })
@@ -128,7 +140,7 @@ function Home() {
                 <label htmlFor='Category'>Category :-</label>
                 <input
                   onChange={(e) => {
-                    formData.category = e.target.value;
+                    formData.category = e.target.value.toUpperCase();
                   }}
                   type='text'
                   className='bg-gray-100 border-2 rounded-md outline-none focus:border-blue-500 uppercase focus:p-0.5 transition-all duration-[0.3s] ease-in-out'
@@ -152,7 +164,7 @@ function Home() {
                 <label htmlFor='Class'>Class :-</label>
                 <input
                   onChange={(e) => {
-                    formData.class = e.target.value;
+                    formData.studentClass = e.target.value;
                   }}
                   type='text'
                   className='bg-gray-100 border-2 rounded-md outline-none focus:border-blue-500 focus:p-0.5 transition-all duration-[0.3s] ease-in-out'
@@ -176,19 +188,22 @@ function Home() {
                 className='hidden'
                 ref={inputRef}
                 type='file'
-                onChange={async (e) => {
-                  const base64 = await convertFile(e.target.files[0]);
-                  new Compressor(e.target.files[0], {
-                    quality: 0.8, // 0.6 can also be used, but its not recommended to go below.
-                    success: (compressedResult) => {
-                      // compressedResult has the compressed file.
-                      console.log(compressedResult);
-                      // Use the compressed file to upload the images to your server.
-                      formData.Image = compressedResult;
-                      // setCompressedFile(res);
-                    },
-                  });
-                  // formData.Image = base64;
+                // onChange={async (e) => {
+                //   const base64 = await convertFile(e.target.files[0]);
+                //   new Compressor(e.target.files[0], {
+                //     quality: 0.8, // 0.6 can also be used, but its not recommended to go below.
+                //     success: (compressedResult) => {
+                //       // compressedResult has the compressed file.
+                //       console.log(compressedResult);
+                //       // Use the compressed file to upload the images to your server.
+                //       formData.Image = compressedResult;
+                //       // setCompressedFile(res);
+                //     },
+                //   });
+                //   // formData.Image = base64;
+                // }}
+                onChange={(e) => {
+                  formData.image = e.target.files[0];
                 }}
               />
             </div>
