@@ -1,11 +1,13 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Student() {
   const [data, setData] = useState([]);
   const [classLists, setClassLists] = useState([]);
   const [filterByClass, setFilterByClass] = useState([]);
   const [classDropdownValue, setClassDropdownValue] = useState("");
+  const navigate = useNavigate();
 
   useEffect(() => {
     function getData() {
@@ -89,7 +91,7 @@ function Student() {
                     <div
                       key={index}
                       onClick={() => {
-                        alert("Hello");
+                        navigate(`${element._id}`);
                       }}
                     >
                       <div className='shadow-indigo-500/40 p-5 sm:flex sm:justify-between'>
@@ -156,7 +158,7 @@ function Student() {
                     <div
                       key={index}
                       onClick={() => {
-                        alert("Hello");
+                        navigate(`${element._id}`);
                       }}
                     >
                       <div className='shadow-indigo-500/40 p-5 sm:flex sm:justify-between'>
