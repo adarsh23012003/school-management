@@ -26,7 +26,7 @@ function StudentDetails() {
         <div className='flex justify-center pb-3'>
           <img
             className='rounded-md w-32 h-32 sm:w-40 sm:h-40 object-fill'
-            src={`http://localhost:5000/${data.image}`}
+            src={data.image}
             alt='Image'
           />
         </div>
