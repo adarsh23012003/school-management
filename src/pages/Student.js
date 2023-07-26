@@ -101,7 +101,7 @@ function Student() {
                         <div className='shadow-lg shadow-indigo-500/40 p-2 sm:flex sm:justify-between border-2 mb-5'>
                           <div className='p-2 flex justify-center'>
                             <img
-                              src={`http://localhost:5000/${element.image}`}
+                              src={element.image}
                               alt='flower Image'
                               className='rounded-full w-32 h-32 sm:w-32 sm:h-w-32 object-fill'
                             />
@@ -170,7 +170,7 @@ function Student() {
                         <div className='shadow-lg shadow-indigo-500/40 p-2 sm:flex sm:justify-between border-2 mb-5'>
                           <div className='p-2 flex justify-center'>
                             <img
-                              src={`http://localhost:5000/${element.image}`}
+                              src={element.image}
                               alt='flower Image'
                               className='rounded-full w-32 h-32 sm:w-32 sm:h-w-32 object-fill'
                             />
