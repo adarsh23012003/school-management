@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { instance } from "../Axios/axiosConfig";
+import { getCookie } from "../Axios/cookieConfig";
 
 function Student() {
   const [data, setData] = useState([]);
@@ -56,6 +57,13 @@ function Student() {
       filterByClass();
     }
   }, [classDropdownValue]);
+  useEffect(() => {
+    let token = getCookie("token");
+    // console.log(token);
+    if (!token) {
+      navigate("/login");
+    }
+  }, []);
 
   return (
     <>
