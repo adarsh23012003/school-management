@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { instance } from "../Axios/axiosConfig";
+import { instance, setToken } from "../Axios/axiosConfig";
+import { setCookie } from "../Axios/cookieConfig";
 
 function Login() {
   const [formData, setFormData] = useState({
@@ -10,7 +11,11 @@ function Login() {
     instance
       .post("http://localhost:5000/user/login", formData)
       .then(function (response) {
-        console.log(response.data.token);
+        // console.log(response.data.token);
+        setToken(response.data.token);
+
+        const jwtToken = response.data.token;
+        setCookie("token", jwtToken, 1 / 24);
       })
       .catch(function (error) {
         console.log(error);
