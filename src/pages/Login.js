@@ -1,5 +1,5 @@
-import axios from "axios";
 import React, { useState } from "react";
+import { instance } from "../Axios/axiosConfig";
 
 function Login() {
   const [formData, setFormData] = useState({
@@ -7,7 +7,7 @@ function Login() {
     password: "",
   });
   function handelSubmit() {
-    axios
+    instance
       .post("http://localhost:5000/user/login", formData)
       .then(function (response) {
         console.log(response.data.token);

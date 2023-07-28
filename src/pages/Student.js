@@ -1,6 +1,6 @@
-import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { instance } from "../Axios/axiosConfig";
 
 function Student() {
   const [data, setData] = useState([]);
@@ -11,7 +11,7 @@ function Student() {
 
   useEffect(() => {
     function getData() {
-      axios
+      instance
         .get("http://localhost:5000/student")
         .then(function (response) {
           // console.log(response.data);
@@ -26,7 +26,7 @@ function Student() {
 
   useEffect(() => {
     function classLists() {
-      axios
+      instance
         .get("http://localhost:5000/student/classes")
         .then(function (response) {
           // console.log(response.data);
@@ -42,7 +42,7 @@ function Student() {
   useEffect(() => {
     if (classDropdownValue) {
       function filterByClass() {
-        axios
+        instance
           .get(
             `http://localhost:5000/student/filterByClass/${classDropdownValue}`
           )

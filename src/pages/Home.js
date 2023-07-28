@@ -1,7 +1,6 @@
-import axios from "axios";
 import React, { useState, useRef } from "react";
 import { TbFileUpload } from "react-icons/tb";
-import Compressor from "compressorjs";
+import { instance } from "../Axios/axiosConfig";
 
 function Home() {
   const [formData, setFormData] = useState({
@@ -32,7 +31,7 @@ function Home() {
     convertFormData.append("studentClass", formData.studentClass);
     convertFormData.append("image", formData.image);
     e.preventDefault();
-    axios
+    instance
       .post("http://localhost:5000/student/register", convertFormData)
       .then(function (response) {
         console.log(response.data);

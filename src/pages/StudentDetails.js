@@ -1,6 +1,6 @@
-import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { instance } from "../Axios/axiosConfig";
 
 function StudentDetails() {
   const [data, setData] = useState({});
@@ -8,7 +8,7 @@ function StudentDetails() {
 
   useEffect(() => {
     function StudentDetail() {
-      axios
+      instance
         .get(`http://localhost:5000/student/${studentId}`)
         .then(function (response) {
           setData(response.data.student);
